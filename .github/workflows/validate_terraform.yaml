@@ -40,3 +40,34 @@ jobs:
       # Step 5: Run pre-commit hooks on all files
       - name: Run pre-commit hooks
         run: pre-commit run --all-files
+        
+  create-pr:
+    needs: pre-commit  # Make sure this job runs after the pre-commit job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Make some changes to the code
+        run: |
+          # For example, let's create a new file or modify an existing file.
+          echo "This is a new file created by GitHub Actions" > new-file.txt
+          git add .
+
+      # Step 3: Commit the changes to the current branch
+      - name: Commit changes
+        run: |
+          git config user.name "khushpardhi"
+          git config user.email "pardhikhush@gmail.com"
+          git commit -m "Automated change: add new file"
+          git push origin main  # You can push to a feature branch here if desired
+          
+    # Step 4: Create a pull request (Using GitHub CLI `gh`)
+      - name: Create Pull Request
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        run: |
+          # Make sure the changes are pushed to a different branch (not `main` if necessary)
+          git checkout -b my-new-branch
+          git push origin my-new-branch
+
+          # Now, create the pull request using GitHub CLI
+          gh pr create --base main --head my-new-branch --title "Automated PR" --body "This PR is created automatically by GitHub Actions."
+    
