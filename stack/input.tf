@@ -21,4 +21,4 @@ variable "security_group_name" {
   default = "MySecurityGroup"
 }
 
-#variable "ec2_sg_id" {}
+#variable "ec2_sg_id" {}/////
