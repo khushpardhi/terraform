@@ -21,6 +21,11 @@ jobs:
         uses: hashicorp/setup-terraform@v1
         with:
           terraform_version: 1.3.0 
+          
+      # Step 2: Set up Python (needed for pre-commit)
+      - name: Install TFLint 
+        run: |
+          curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
 
       # Step 2: Set up Python (needed for pre-commit)
       - name: Set up Python
