@@ -13,7 +13,7 @@ variable "availability_zone" {
   type = string
   description = "this is my subnet_cidir"
   default = "ap-southeast-2a"
-}@@@@@@@@@@@@@@@@@@
+}
 
 variable "security_group_name" {
   type = string
