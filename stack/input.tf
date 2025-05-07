@@ -20,5 +20,9 @@ variable "security_group_name" {
   description = "this is my routtable_name"
   default = "MySecurityGroup"
 }
-
+variable "security_group_name" {
+  type = string
+  description = "this is my routtable_name"
+  default = "MySecurityGroup"
+}
 #variable "ec2_sg_id" {}
