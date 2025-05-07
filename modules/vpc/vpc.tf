@@ -5,7 +5,7 @@ resource "aws_vpc" "my_vpc" {
     Name = var.vpc_name
   }
 }
-
+resource "aws_vpc" "my_vpc" {
 # Create a Subnet
 resource "aws_subnet" "my_subnet" {
   vpc_id                  = aws_vpc.my_vpc.id
