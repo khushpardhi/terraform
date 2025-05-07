@@ -46,6 +46,6 @@ jobs:
       - name: Run pre-commit on changed files
         if: steps.changed-files.outputs.any_changed == 'true'
         run: |
-          echo "${{ steps.changed-files.outputs.all_changed_files }}" | xargs pre-commit run --files
+          echo "${{ steps.changed-files.outputs.all_changed_files }}" | tr ' ' '\n' | xargs -I {} pre-commit run --files {}
         
 
