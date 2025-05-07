@@ -1,4 +1,5 @@
 resource "aws_instance" "my_ec2" {
+resource "aws_instance" "my_ec2" {
   ami           = "ami-003f5a76758516d1e"  
   instance_type = var.instance_type
   subnet_id     = var.ec2_subnet_id
